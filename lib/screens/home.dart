@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iterable_challenge_flutter/screens/details.dart';
+import 'package:iterable_challenge_flutter/services/fiterable_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,6 +10,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final _fiterableService = FiterableService();
+
+  @override
+  void initState() {
+    super.initState();
+    // Fetch data from the API and update the state
+    _fiterableService.fetchWorkouts();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
