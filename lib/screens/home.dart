@@ -63,7 +63,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             Theme.of(context).colorScheme.secondary,
                         radius: 20,
                         // TODO: replace with image if any
-                        child: Text(workout.title[0]),
+                        child: ClipOval(
+                          child: Image.network(
+                            workout.imageUrl,
+                            fit: BoxFit.cover,
+                            alignment: Alignment.topRight,
+                            width: double.infinity,
+                            height: workout.imageHeight * 0.5,
+                            errorBuilder:
+                                (context, error, stackTrace) => Text(
+                                  workout.title[0],
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                          ),
+                        ),
                       ),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
