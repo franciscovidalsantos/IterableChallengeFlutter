@@ -23,9 +23,11 @@ class Workout {
     required this.imageHeight,
   });
 
-  static List<Workout> fromJson(Map<String, dynamic> json) {
+  static List<Workout> fromJson(Map<String, dynamic> json, Uri url) {
     List<dynamic> workouts = json["workouts"];
     return workouts.map((workout) {
+      var image = url.resolve(workout["imageUrl"]).toString();
+
       return Workout(
         id: workout['id'],
         title: workout['title'],
@@ -34,7 +36,7 @@ class Workout {
         difficulty: workout['difficulty'],
         description: workout['description'],
         instructor: workout['instructor'],
-        imageUrl: workout['imageUrl'],
+        imageUrl: image,
         imageWidth: workout['imageWidth'],
         imageHeight: workout['imageHeight'],
       );

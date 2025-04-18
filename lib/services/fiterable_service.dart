@@ -10,7 +10,7 @@ class FiterableService {
       final response = await http.get(url);
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
-        var fetchedWorkouts = Workout.fromJson(json);
+        var fetchedWorkouts = Workout.fromJson(json, url);
         return fetchedWorkouts;
       } else {
         throw Exception("Failed to load data: ${response.statusCode}");
