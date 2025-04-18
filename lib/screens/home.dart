@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iterable_challenge_flutter/screens/details.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,6 +35,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   Icon(Icons.arrow_forward_ios_rounded),
                 ],
               ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (builder) => DetailsScreen()),
+                );
+              },
             ),
           );
         },
